@@ -2,6 +2,14 @@
 
 A script to add EXIF data overlay to images.
 
+#### Sample input
+
+<img src="sample/DSC04557.JPG" width="300" alt="Input image">
+
+#### Sample output
+
+<img src="sample/output/DSC04557.JPG" width="300" alt="Output image">
+
 ## Install dependencies
 
 ```bash
@@ -10,13 +18,13 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Easy
+#### Easy
 
 ```bash
 ./exif_overlay.py /home/user/Pictures/DSC*.jpg
 ```
 
-### Advanced
+#### Advanced
 
 ```
 usage: exif_overlay.py [-h] [--f-stop F_STOP] [--shutter-speed SHUTTER_SPEED] [--iso ISO] [--focal-length FOCAL_LENGTH] [--flash FLASH] [--date-time DATE_TIME] [--camera CAMERA] [--lens LENS] [--author AUTHOR] [--no-f-stop] [--no-shutter-speed] [--no-iso]
@@ -54,16 +62,6 @@ options:
   --output-dir OUTPUT_DIR
                         Path to the output directory
 ```
-
-## Sample input & output
-
-### Input
-
-<img src="sample/DSC04557.JPG" width="400" alt="Input image">
-
-### Output
-
-<img src="sample/output/DSC04557.JPG" width="400" alt="Output image">
 
 ## Attributions
 
