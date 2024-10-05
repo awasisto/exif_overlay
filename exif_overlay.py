@@ -220,7 +220,9 @@ def overlay_exif(image_path, output_path, exif_data, args):
 
     current_y = start_y
 
+    #
     # Draw the top section text
+    #
 
     icon_keys = []
 
@@ -250,19 +252,21 @@ def overlay_exif(image_path, output_path, exif_data, args):
         icon = icons[icon_key].resize((icon_size, icon_size), Image.LANCZOS)
         r, g, b = Image.new('RGB', icon.size, 'white').split()
         icon = Image.merge('RGBA', (r, g, b, icon.split()[3])).resize((icon_size, icon_size), Image.LANCZOS)
-        exif_overlay.paste(icon, (margin_x, current_y + font_size // 2 + line_spacing // 2 - icon_size // 2), icon)
-        text_x = margin_x + font_size * 1.3
+        exif_overlay.paste(icon, (margin_x, current_y + (font_size + line_spacing - icon_size) // 2), icon)
 
         # Draw text on the EXIF overlay
+        text_x = margin_x + icon_size + int(font_size * 0.5)
         draw_overlay.text((text_x, current_y), line, fill="white", font=font)
         current_y += font_size + line_spacing
 
     # Draw a separator between the top and bottom sections
     current_y += separator_padding_height
     draw_overlay.line([(margin_x, current_y), (image_width - margin_x, current_y)], fill=(255, 255, 255, 96), width=separator_thickness)
-    current_y = current_y + separator_thickness + separator_padding_height
+    current_y += separator_thickness + separator_padding_height
 
+    #
     # Draw the bottom section text
+    #
 
     bottom_icon_keys = []
 
@@ -281,10 +285,10 @@ def overlay_exif(image_path, output_path, exif_data, args):
         icon = icons[icon_key].resize((bottom_icon_size, bottom_icon_size), Image.LANCZOS)
         r, g, b = Image.new('RGB', icon.size, 'white').split()
         icon = Image.merge('RGBA', (r, g, b, icon.split()[3])).resize((bottom_icon_size, bottom_icon_size), Image.LANCZOS)
-        exif_overlay.paste(icon, (margin_x, current_y + bottom_font_size // 2 + bottom_line_spacing // 2 - bottom_icon_size // 2), icon)
-        text_x = margin_x + bottom_font_size * 1.5
+        exif_overlay.paste(icon, (margin_x, current_y + (bottom_font_size + bottom_line_spacing - bottom_icon_size) // 2), icon)
 
         # Draw text on the EXIF overlay
+        text_x = margin_x + bottom_icon_size + int(bottom_font_size * 0.7)
         draw_overlay.text((text_x, current_y), line, fill="white", font=bottom_font)
         current_y += bottom_font_size + bottom_line_spacing
 
