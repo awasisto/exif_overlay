@@ -124,7 +124,7 @@ def format_exif_text(exif_data, args):
 
     # Override EXIF data with the command-line arguments if provided
     if args.f_stop:
-        f_stop_text = args.f_stop
+        f_stop_text = args.f_stop.replace('f/', 'ƒ/')
     if args.shutter_speed:
         shutter_speed_text = args.shutter_speed
     if args.iso is not None:
