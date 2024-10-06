@@ -311,7 +311,7 @@ def overlay_exif(image_path, output_path, exif_data, args):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Add EXIF data overlay to multiple images.")
+    parser = argparse.ArgumentParser(description="Add EXIF data overlay to image(s).")
 
     parser.add_argument("--f-stop", help='Override f-stop value (e.g., "ƒ/2.8")', default=None)
     parser.add_argument("--shutter-speed", help='Override shutter speed (e.g., "60 sec")', default=None)

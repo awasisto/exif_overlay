@@ -1,6 +1,6 @@
 # exif_overlay
 
-A script to add EXIF data overlay to images.
+A script to add EXIF data overlay to image(s).
 
 #### Sample input
 
@@ -31,7 +31,7 @@ usage: exif_overlay.py [-h] [--f-stop F_STOP] [--shutter-speed SHUTTER_SPEED] [-
                        [--no-focal-length] [--no-flash] [--no-date-time] [--no-camera] [--no-lens] [--no-copyright] [--output-dir OUTPUT_DIR]
                        input_images [input_images ...]
 
-Add EXIF data overlay to multiple images.
+Add EXIF data overlay to image(s).
 
 positional arguments:
   input_images          Path to the input image(s) (supports glob patterns like DSC*.jpg)
