@@ -8,7 +8,7 @@ A script to add EXIF data overlay to image(s).
 
 #### Sample output
 
-<img src="sample/output/DSC04557.JPG" width="300" alt="Output image">
+<img src="sample/DSC04557_exif.jpg" width="300" alt="Output image">
 
 ## Install dependencies
 
@@ -27,18 +27,21 @@ pip install -r requirements.txt
 #### Advanced
 
 ```
-usage: exif_overlay.py [-h] [--f-stop F_STOP] [--shutter-speed SHUTTER_SPEED] [--iso ISO] [--focal-length FOCAL_LENGTH] [--flash FLASH] [--date-time DATE_TIME] [--camera CAMERA] [--lens LENS] [--author AUTHOR] [--no-f-stop] [--no-shutter-speed] [--no-iso]
-                       [--no-focal-length] [--no-flash] [--no-date-time] [--no-camera] [--no-lens] [--no-copyright] [--output-dir OUTPUT_DIR]
+usage: exif_overlay.py [-h] [--f-stop F_STOP] [--shutter-speed SHUTTER_SPEED] [--iso ISO]
+                       [--focal-length FOCAL_LENGTH] [--flash FLASH] [--date-time DATE_TIME] [--camera CAMERA]
+                       [--lens LENS] [--author AUTHOR] [--no-f-stop] [--no-shutter-speed] [--no-iso]
+                       [--no-focal-length] [--no-flash] [--no-date-time] [--no-camera] [--no-lens] [--no-copyright]
                        input_images [input_images ...]
 
-Add EXIF data overlay to image(s).
+Add EXIF data overlay to image(s). Output images will be saved in the same directory as the input images with "_exif"
+appended to the filename.
 
 positional arguments:
   input_images          Path to the input image(s) (supports glob patterns like DSC*.jpg)
 
 options:
   -h, --help            show this help message and exit
-  --f-stop F_STOP       Override f-stop value (e.g., "ƒ/2.8")
+  --f-stop F_STOP       Override f-stop value (e.g., "f/2.8")
   --shutter-speed SHUTTER_SPEED
                         Override shutter speed (e.g., "60 sec")
   --iso ISO             Override ISO value (e.g., "ISO 100")
@@ -59,8 +62,6 @@ options:
   --no-camera           Hide camera
   --no-lens             Hide lens
   --no-copyright        Hide copyright notice
-  --output-dir OUTPUT_DIR
-                        Path to the output directory
 ```
 
 ## Attributions

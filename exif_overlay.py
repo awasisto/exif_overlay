@@ -311,9 +311,9 @@ def overlay_exif(image_path, output_path, exif_data, args):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Add EXIF data overlay to image(s).")
+    parser = argparse.ArgumentParser(description="Add EXIF data overlay to image(s). Output images will be saved in the same directory as the input images with \"_exif\" appended to the filename.")
 
-    parser.add_argument("--f-stop", help='Override f-stop value (e.g., "ƒ/2.8")', default=None)
+    parser.add_argument("--f-stop", help='Override f-stop value (e.g., "f/2.8")', default=None)
     parser.add_argument("--shutter-speed", help='Override shutter speed (e.g., "60 sec")', default=None)
     parser.add_argument("--iso", help='Override ISO value (e.g., "ISO 100")', default=None)
     parser.add_argument("--focal-length", help='Override focal length (e.g., "50mm")', default=None)
@@ -333,8 +333,6 @@ def main():
     parser.add_argument("--no-lens", action="store_true", help="Hide lens")
     parser.add_argument("--no-copyright", action="store_true", help="Hide copyright notice")
 
-    parser.add_argument("--output-dir", help="Path to the output directory", default="images_with_exif_overlay")
-
     parser.add_argument("input_images", nargs='+', help="Path to the input image(s) (supports glob patterns like DSC*.jpg)")
 
     args = parser.parse_args()
@@ -343,12 +341,9 @@ def main():
     for pattern in args.input_images:
         image_files.extend(glob.glob(pattern))
 
-    output_dir = args.output_dir
-    os.makedirs(output_dir, exist_ok=True)
-
     for image_path in image_files:
         exif_data = extract_exif(image_path)
-        output_path = os.path.join(output_dir, os.path.basename(image_path))
+        output_path = f"{os.path.splitext(image_path)[0]}_exif.jpg"
         overlay_exif(image_path, output_path, exif_data, args)
         print(f"Image with EXIF overlay saved to {output_path}")
 
