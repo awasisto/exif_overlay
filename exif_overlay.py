@@ -96,8 +96,13 @@ def format_exif_text(exif_data, args):
     elif isinstance(exif_data['focal_length'], exifread.classes.IfdTag):
         focal_length_value = exif_data['focal_length'].values[0].num / exif_data['focal_length'].values[0].den
         focal_length_text = f"{'{:.2f}'.format(focal_length_value).rstrip('0').rstrip('.')}mm"
-        if exif_data['focal_length_in_35mm_film'] != '-':
-            focal_length_text = f"{focal_length_text} ({exif_data['focal_length_in_35mm_film']}mm FF)"
+
+    focal_length_in_35mm_film_text = f"{exif_data['focal_length_in_35mm_film']}"
+    if isinstance(exif_data['focal_length_in_35mm_film'], str) and focal_length_in_35mm_film_text != '-' and 'mm' not in focal_length_in_35mm_film_text:
+        focal_length_in_35mm_film_text = f"{focal_length_in_35mm_film_text}mm"
+
+    if focal_length_in_35mm_film_text != '-' and focal_length_in_35mm_film_text != focal_length_text:
+        focal_length_text = f"{focal_length_text} ({focal_length_in_35mm_film_text}mm FF)"
 
     # Format flash
     flash_text = f"{exif_data['flash']}"
