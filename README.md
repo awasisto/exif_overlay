@@ -21,7 +21,7 @@ pip install -r requirements.txt
 #### Easy
 
 ```bash
-./exif_overlay.py /home/user/Pictures/DSC*.jpg
+./exif_overlay.py /home/user/Pictures/DSC01234.jpg
 ```
 
 #### Advanced
@@ -37,7 +37,7 @@ Add EXIF data overlay to image(s). Output images will be saved in the same direc
 appended to the filename.
 
 positional arguments:
-  input_images          Path to the input image(s) (supports glob patterns like DSC*.jpg)
+  input_images          Path to the input image(s) (e.g., DSC01234.jpg or DSC*.jpg)
 
 options:
   -h, --help            show this help message and exit
