@@ -101,7 +101,7 @@ def format_exif_text(exif_data, args):
         focal_length_in_35mm_film_text = f"{focal_length_in_35mm_film_text}mm"
 
     if focal_length_in_35mm_film_text != '-' and focal_length_in_35mm_film_text != focal_length_text:
-        focal_length_text = f"{focal_length_text} ({focal_length_in_35mm_film_text} FF)"
+        focal_length_text = f"{focal_length_text} ({focal_length_in_35mm_film_text}mm FF)"
 
     # Format flash
     flash_text = f"{exif_data['flash']}"
