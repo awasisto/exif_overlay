@@ -338,7 +338,7 @@ def main():
     parser.add_argument("--no-lens", action="store_true", help="Hide lens")
     parser.add_argument("--no-copyright", action="store_true", help="Hide copyright notice")
 
-    parser.add_argument("input_images", nargs='+', help="Path to the input image(s) (supports glob patterns like DSC*.jpg)")
+    parser.add_argument("input_images", nargs='+', help='Path to the input image(s) (e.g., DSC01234.jpg or DSC*.jpg)')
 
     args = parser.parse_args()
 
